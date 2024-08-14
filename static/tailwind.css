@@ -1,0 +1,9 @@
+/* static/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.custom-class {
+    color: red;
+  }

@@ -1,11 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="bg-black text-[#387F39] sticky top-0 z-10 shadow-custom-light flex items-center justify-center px-2 py-3">
+        <!-- Container for both Logo and Heading -->
+        <div class="flex items-center space-x-4">
+            <!-- Logo -->
+            <img src="{{ url_for('static', filename='logo.gif') }}" alt="Store Logo" class="w-12 h-12" />
+            
+            <!-- Heading -->
+            <div class="text-6xl font-bold text-purple-500">Boston House Price Prediction</div>
+        </div>
+    </nav>
+
+    <form action="{{ url_for('predict')}}" method="post" class="row g-3 container mx-auto mt-4 shadow-lg p-4">
+        <div class="row">
+            <label for="CRIM" class="block text-gray-700 font-semibold">CRIM</label>
+            <input type="text" id="CRIM" name="CRIM" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="ZN" class="block text-gray-700 font-semibold">ZN</label>
+                <input type="text" id="ZN" name="ZN" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="INDUS" class="block text-gray-700 font-semibold">INDUS</label>
+                <input type="text" id="INDUS" name="INDUS" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="CHAS" class="block text-gray-700 font-semibold">CHAS</label>
+                <input type="text" id="CHAS" name="CHAS" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+        </div>  
+
+        <div class="row mt-3">
+            <div class="col">
+                <label for="NOX" class="block text-gray-700 font-semibold">NOX</label>
+                <input type="text" id="NOX" name="NOX" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="RM" class="block text-gray-700 font-semibold">RM</label>
+                <input type="text" id="RM" name="RM" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="AGE" class="block text-gray-700 font-semibold">AGE</label>
+                <input type="text" id="AGE" name="AGE" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <label for="DIS" class="block text-gray-700 font-semibold">DIS</label>
+                <input type="text" id="DIS" name="DIS" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="RAD" class="block text-gray-700 font-semibold">RAD</label>
+                <input type="text" id="RAD" name="RAD" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="TAX" class="block text-gray-700 font-semibold">TAX</label>
+                <input type="text" id="TAX" name="TAX" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <label for="PTRATIO" class="block text-gray-700 font-semibold">PTRATIO</label>
+                        <input type="text" id="PTRATIO" name="PTRATIO" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="B" class="block text-gray-700 font-semibold">B</label>
+                <input type="text" id="B" name="B" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+            <div class="col">
+                <label for="LSTAT" class=" block text-gray-700 font-semibold">LSTAT</label>
+                <input type="text" id="LSTAT" name="LSTAT" class="w-full p-3 border border-gray-300 rounded shadow-custom focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+            </div>
+        </div>
+        <div class="form-control-sm row mt-4">
+          <button type="submit" class="form-control-lg btn btn-success p-3 btn-large-text">Sign in</button>
+        </div>
+      </form>
+
+      <div class="container mt-5 shadow-lg p-4">
+        <h1>{{output}}</h1>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>
+
