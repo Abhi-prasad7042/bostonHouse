@@ -1,6 +1,3 @@
-Here's a sample `README.md` for your Boston House Price Prediction project:
-
-```markdown
 # Boston House Price Prediction
 
 ## Project Overview
